@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recipe Details - My Recipe Journal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <h1>Kitchen Tales</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="recipe.html">Recipes</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        
+
+      </ul>
+    </nav>
+  </header>
+
+  <section class="recipe-details">
+    <h2>Recipe Details</h2>
+    <div class="recipe-info">
+    
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Kitchen Tales Journal. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    
+    const params = new URLSearchParams(window.location.search);
+    const recipeName = params.get("recipe");
+
+    
+    const recipes = {
+  "alfredo-pasta": {
+    name: "Alfredo Pasta",
+    image: "images/pasta.jpg",
+    ingredients: [
+      "200g fettuccine",
+      "1 cup heavy cream",
+      "1/2 cup Parmesan cheese",
+      "2 tbsp butter",
+      "1 garlic clove",
+      "Salt and pepper"
+    ],
+    instructions: [
+      "Cook fettuccine according to package directions.",
+      "In a pan, melt butter and garlic, then add heavy cream.",
+      "Add Parmesan cheese and stir until the sauce thickens.",
+      "Toss the pasta in the sauce and serve."
+    ]
+  },
+  "chocolate-cake": {
+    name: "Chocolate Cake",
+    image: "images/cc.jpg",
+    ingredients: [
+      "1 cup all-purpose flour",
+      "1/2 cup cocoa powder",
+      "1 cup sugar",
+      "2 eggs",
+      "1/2 cup milk",
+      "1 tsp vanilla extract",
+      "1/2 cup butter"
+    ],
+    instructions: [
+      "Preheat the oven to 350°F (175°C).",
+      "Mix dry ingredients and wet ingredients separately.",
+      "Combine them and pour into a greased cake pan.",
+      "Bake for 30-35 minutes or until a toothpick comes out clean."
+    ]
+  },
+  "masala-maggi": {
+    name: "Masala Maggi",
+    image: "images/maggie.jpg",
+    ingredients: [
+      "1 pack Maggi noodles",
+      "1 tbsp oil",
+      "1 onion, chopped",
+      "1 tomato, chopped",
+      "1/2 tsp chili powder",
+      "1/2 tsp garam masala",
+      "Salt to taste"
+    ],
+    instructions: [
+      "Boil Maggi noodles as per instructions.",
+      "In a pan, heat oil and sauté onions and tomatoes.",
+      "Add the spices and mix well.",
+      "Add the cooked noodles to the pan and mix everything."
+    ]
+  },
+  "aloo-paratha": {
+    name: "Aloo Paratha",
+    image: "images/ap.jpg",
+    ingredients: [
+      "2 cups wheat flour",
+      "2 boiled potatoes, mashed",
+      "1 tsp cumin seeds",
+      "1 green chili, chopped",
+      "1 tsp garam masala",
+      "Salt to taste",
+      "Ghee for frying"
+    ],
+    instructions: [
+      "Prepare dough with flour and water.",
+      "Mix mashed potatoes with spices to make the filling.",
+      "Roll dough, stuff with filling, and roll again.",
+      "Cook on tawa with ghee till golden brown."
+    ]
+  },
+  "sushi": {
+    name: "Sushi",
+    image: "images/ss.jpg",
+    ingredients: [
+      "1 cup sushi rice",
+      "2 tbsp rice vinegar",
+      "1 tsp sugar",
+      "1/2 tsp salt",
+      "Nori sheets",
+      "Fillings: cucumber, avocado, cooked crab, etc."
+    ],
+    instructions: [
+      "Cook sushi rice and season with vinegar mixture.",
+      "Place rice on nori sheet and add fillings.",
+      "Roll tightly and slice into pieces.",
+      "Serve with soy sauce and wasabi."
+    ]
+  },
+  "french-toast": {
+    name: "French Toast",
+    image: "images/images.jpg",
+    ingredients: [
+      "4 slices bread",
+      "2 eggs",
+      "1/2 cup milk",
+      "1 tsp cinnamon",
+      "1 tsp vanilla extract",
+      "Butter for frying"
+    ],
+    instructions: [
+      "Whisk eggs, milk, cinnamon, and vanilla together.",
+      "Dip bread slices in the mixture.",
+      "Fry on buttered pan until golden brown on both sides.",
+      "Serve with syrup or fruits."
+    ]
+  },
+  "vegan-tofu-scramble": {
+    name: "Vegan Tofu Scramble",
+    image: "images/vegan.jpg",
+    ingredients: [
+      "200g firm tofu",
+      "1/2 onion, chopped",
+      "1/2 bell pepper, chopped",
+      "1/2 tsp turmeric",
+      "Salt and pepper",
+      "1 tbsp olive oil"
+    ],
+    instructions: [
+      "Crumble tofu with hands.",
+      "Sauté onion and bell pepper in oil.",
+      "Add tofu, turmeric, salt, and pepper.",
+      "Cook for 5-7 minutes until slightly crispy."
+    ]
+  },
+  "shakshuka": {
+    name: "Shakshuka",
+    image: "images/best-shakshuka-recipe-3.jpg.jpg",
+    ingredients: [
+      "2 eggs",
+      "1 onion, chopped",
+      "2 tomatoes, chopped",
+      "1 tsp paprika",
+      "1/2 tsp cumin",
+      "Salt and pepper",
+      "1 tbsp olive oil"
+    ],
+    instructions: [
+      "Sauté onion in olive oil, add tomatoes and spices.",
+      "Cook until it becomes a thick sauce.",
+      "Make small wells and crack eggs into them.",
+      "Cover and cook until eggs are set."
+    ]
+  },
+  "pizza": {
+    name: "Pizza",
+    image: "images/pizza.jpg",
+    ingredients: [
+      "1 pizza base",
+      "1/2 cup pizza sauce",
+      "1 cup shredded cheese",
+      "Toppings: bell peppers, olives, onion, etc."
+    ],
+    instructions: [
+      "Spread sauce on pizza base.",
+      "Add toppings and sprinkle cheese.",
+      "Bake at 180°C for 10-15 minutes until golden."
+    ]
+  },
+  "pancakes": {
+    name: "Pancake",
+    image: "images/pc.jpg",
+    ingredients: [
+      "1 cup flour",
+      "1 tbsp sugar",
+      "1 tsp baking powder",
+      "1 cup milk",
+      "1 egg",
+      "1 tbsp melted butter"
+    ],
+    instructions: [
+      "Mix all dry ingredients in one bowl.",
+      "In another bowl, whisk wet ingredients.",
+      "Combine both and mix well.",
+      "Pour batter on a hot griddle and cook both sides."
+    ]
+  }
+};
+
+   
+    function showRecipeDetails(recipeName) {
+      const recipe = recipes[recipeName];
+      if (recipe) {
+        const recipeContainer = document.querySelector('.recipe-info');
+        recipeContainer.innerHTML = `
+          <div class="recipe-header">
+            <img src="${recipe.image}" alt="${recipe.name}" class="recipe-image" />
+            <h3>${recipe.name}</h3>
+          </div>
+          <h4>Ingredients:</h4>
+          <ul>
+            ${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
+          </ul>
+          <h4>Instructions:</h4>
+          <ol>
+            ${recipe.instructions.map(step => `<li>${step}</li>`).join('')}
+          </ol>
+        `;
+      } else {
+        document.querySelector('.recipe-info').innerHTML = "<p>Recipe not found.</p>";
+      }
+    }
+
+    
+    if (recipeName) {
+      showRecipeDetails(recipeName);
+    } else {
+      document.querySelector('.recipe-info').innerHTML = "<p>No recipe selected.</p>";
+    }
+  </script>
+</body>
+</html>
